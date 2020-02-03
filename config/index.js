@@ -11,12 +11,12 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {		// 配置跨域代理-服务器欺骗
-    	'/api':{		// 1.对所有以 '/api' 开头的url做处理
-    		target:'http://localhost:3000',		// 3.转发到 后台服务localhost:3000 上
+    	'/api':{		// 对所有以 '/api' 开头的url做处理
+    		target:'http://localhost:3000',		// 目标主机目标端口
     		secure:false,
     		changeOrigin:true,  // 如果需要跨域
     		pathRewrite:{
-    			'^/api':''		// 2.把接口中的'/api'替换成target
+    			'^/api':''		// 原url默认访问主机8080端口,此处默认被target替换,现转发到主机目标端口上
     		}
     	}
     },

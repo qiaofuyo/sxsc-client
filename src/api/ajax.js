@@ -19,12 +19,14 @@ export default function ajax(url = '', params = {}, type = 'get') {
 				url += '?' + paramsStr
 			}
 			// 2.4 发送 get 请求
+			// console.log(url)
 			promise = axios.get(url)
 		} else if ('post' === type) { // post请求操作
 			promise = axios.post(url, params)
 		}
 		// 3. 处理服务器响应,返回请求的结果
 		promise.then((response) => {
+				// console.log('轮播图:\n'+response.status_code)
 			resolve(response.data)
 		}).catch(error => {
 			console.log('失败')

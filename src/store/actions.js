@@ -23,9 +23,8 @@ export default {
 		// 在这里必须通过 await 做等待,等待数据请求回来
 		const result = await getHomeSlide() // 自调用getHomeSlide获取数据
 		// 提交到mutation的同名函数 HOME_SLIDE 中, homeSlide指向请求到的数据result, mutation不能直接接收result
-		// console.log(result)
 		commit(HOME_SLIDE, {
-			homeSlide: result.message.data
+			homeSlide: result.message
 		})
 	},
 	// 2. 请求首页导航
@@ -34,7 +33,7 @@ export default {
 	}) {
 		const result = await getHomeNav()
 		commit(HOME_NAV, {
-			homeNav: result.message.data
+			homeNav: result.message
 		})
 	},
 	// 3. 请求首页商品列表
