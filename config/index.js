@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {		// 配置跨域代理-服务器欺骗
+    	'/api':{		// 1.对所有以 '/api' 开头的url做处理
+    		target:'http://localhost:3000',		// 3.转发到 后台服务localhost:3000 上
+    		secure:false,
+    		changeOrigin:true,  // 如果需要跨域
+    		pathRewrite:{
+    			'^/api':''		// 2.把接口中的'/api'替换成target
+    		}
+    	}
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
