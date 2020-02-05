@@ -1,16 +1,14 @@
 <template>
-	<div>
-		<div class="swiper-container">
-			<!-- 图片， 通过服务器请求得到的图片 -->
-			<div class="swiper-wrapper">
-				<!-- key如果修改则重新渲染img，否则复用img -->
-				<div class="swiper-slide" v-for="(slide,index) in homeSlide" :key="index">
-					<img :src="slide.imgurl" width="100%" />
-				</div>
+	<div class="swiper-container">
+		<!-- 图片， 通过服务器请求得到的图片 -->
+		<div class="swiper-wrapper">
+			<!-- key如果修改则重新渲染img，否则复用img -->
+			<div class="swiper-slide" v-for="(slide,index) in homeSlide" :key="index">
+				<img :src="slide.imgurl" />
 			</div>
-			<!-- 分页器 -->
-			<div class="swiper-pagination"></div>
 		</div>
+		<!-- 分页器 -->
+		<div class="swiper-pagination"></div>
 	</div>
 </template>
 
@@ -22,7 +20,7 @@
 	import {
 		mapState
 	} from 'vuex'
-	
+
 	export default {
 		name: 'HomeSwiperContainer',
 		computed: {
@@ -61,8 +59,12 @@
 		// } -->
 <style scoped>
 	.swiper-container {
+		width: 95%;
+		border-radius: 1rem;
+	}
+
+	.swiper-slide>img {
 		width: 100%;
-		height: 240px;
-		background-color: #efefef;
+		height: 100%;
 	}
 </style>
