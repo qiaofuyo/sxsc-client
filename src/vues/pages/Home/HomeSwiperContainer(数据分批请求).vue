@@ -1,10 +1,10 @@
 <template>
-	<div id="swiper-container">
+	<div class="swiper-container">
 		<!-- 图片， 通过服务器请求得到的图片 -->
 		<div class="swiper-wrapper">
 			<!-- key如果修改则重新渲染img，否则复用img -->
-			<div class="swiper-slide" v-for="slide in homeslide_data" :key="slide._id">
-				<img :src="slide.image_url" :alt="slide.name" :href="slide.goto">
+			<div class="swiper-slide" v-for="(slide,index) in homeslide_data" :key="index">
+				<img :src="slide.imgurl" />
 			</div>
 		</div>
 		<!-- 分页器 -->
@@ -23,7 +23,7 @@
 
 	export default {
 		name: 'HomeSwiperContainer',
-		props: { // 接受父组件传过来的数据
+		props:{  // 接受父组件传过来的数据
 			homeslide_data: Array
 		},
 		// computed: {
@@ -50,10 +50,10 @@
 			// 	}
 			// });
 		},
-		watch: {
-			homeslide_data() {
-				this.$nextTick(() => {
-					new Swiper('#swiper-container', {
+		watch:{
+			homeslide_data(){
+				this.$nextTick(()=>{
+					new Swiper('.swiper-container', {
 						loop: true, // 循环模式选项
 						// 切换设置
 						autoplay: {
@@ -79,19 +79,14 @@
 		// 		})
 		// 	}
 		// } -->
-<style scoped lang="stylus">
-	#swiper-container
-		padding 3rem 0 1rem
-		width 95%
-		height 12rem
-		border-radius 3rem
-		position relative
-		overflow hidden
-		margin 0 auto
-		img
-			width 100%
-			height 100%
-		.swiper-pagination
-			position relative
-			bottom 1.2rem
+<style scoped>
+	.swiper-container {
+		width: 95%;
+		border-radius: 1rem;
+	}
+
+	.swiper-slide>img {
+		width: 100%;
+		height: 100%;
+	}
 </style>

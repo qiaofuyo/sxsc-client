@@ -26,10 +26,9 @@ export default function ajax(url = '', params = {}, type = 'get') {
 		}
 		// 3. 处理服务器响应,返回请求的结果
 		promise.then((response) => {
-				// console.log('轮播图:\n'+response.status_code)
 			resolve(response.data)
 		}).catch(error => {
-			console.log('失败')
+			console.log('服务器响应失败')
 			reject(error)
 		})
 	})

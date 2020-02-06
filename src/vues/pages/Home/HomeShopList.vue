@@ -1,14 +1,16 @@
 <template>
 	<div class="home-shop-list">
 		<div class="shop-list">
-			<div class="shop-list-item" v-for="(shoplist,index) in homeShopList" :key="index">
-				<img :src="shoplist.image_url" alt="">
-				<p class="list-item-title">{{shoplist.goods_title}}</p>
-				<p class="list-item-subtitle">{{shoplist.goods_subtitle}}</p>
-				<span class="item-price1">{{shoplist.goods_price1}}</span>
-				<span class="item-price2">{{shoplist.goods_price2}}</span>
+			<div class="shop-list-item" v-for="shoplist in homeshoplist_data" :key="shoplist._id">
+				<img :src="shoplist.image_url" :alt="shoplist.name">
+				<p class="list-item-title">{{shoplist.name}}</p>
+				<p class="list-item-subtitle">{{shoplist.describe}}</p>
+				<div class="price">
+					<span class="item-price1">{{shoplist.price}}</span>
+					<span class="item-price2">{{shoplist.origin_price}}</span>
+				</div>
 				<div class="item-buy">
-					<img :src="shoplist.image_buy" alt="">
+					<img src="./imgs/cart.svg" alt="">
 				</div>
 			</div>
 		</div>
@@ -16,11 +18,15 @@
 </template>
 
 <script>
-	import {mapState} from 'vuex'
+	// import {mapState} from 'vuex'
+	
 	export default {
 		name: 'HomeShopList',
+		props:{
+			homeshoplist_data: Array
+		},
 		computed:{
-			...mapState(['homeShopList'])
+			// ...mapState(['homeShopList'])
 		}
 	}
 </script>
@@ -45,10 +51,10 @@
 		width: 48%;
 		margin-bottom: 10px;
 		background-color: #ffffff;
-		padding-bottom: 1.5rem;
+		padding-bottom: .5rem;
 		position: relative;
 		img{
-			width: 30%;
+			width: 100%;
 		}
 	}
 	.list-item-title,.list-item-subtitle{
@@ -68,8 +74,10 @@
 		text-overflow: ellipsis;  // 用省略号代表被裁剪内容
 		white-space: nowrap;  // 文本不换行
 	}
-	.item-price1 {
+	.price{
 		padding-left: .5rem;
+	}
+	.item-price1 {
 		color: #f37078;
 		font-size: 1.3rem;
 	}
@@ -79,16 +87,16 @@
 		font-size: .9rem;
 	}
 	.item-buy {
-		width: 2.5rem;
-		height: 2.5rem;
+		width: 2rem;
+		height: 2rem;
 		background-color: #75a342;
 		border-radius: 100%;
 		position: absolute;
-		right: .7rem;
-		bottom: .7rem;
+		right: .6rem;
+		bottom: .6rem;
 		text-align:center;
 		img{
-			width: 70%;
+			width: 60%;
 			height: 100%;
 		}
 	}
