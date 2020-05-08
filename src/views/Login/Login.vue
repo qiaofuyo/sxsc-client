@@ -18,7 +18,8 @@
 			<!-- 表单内容 -->
 			<div class="content" :is='model'
 				@registerSucceed='clickLoginMode'
-				:registerPhone='registerPhone'></div>
+				:registerPhone='registerPhone'
+				:registerPwd='registerPwd'></div>
 		</div>
 		
 	</div>
@@ -40,12 +41,13 @@
 				arr: ['loginContent', 'registerContent'],  // 存放登陆、注册组件名
 				model: 'loginContent',  // 展示 登陆 or 注册
 				
-				registerPhone: '',  // 注册后获得电话
+				registerPhone: '13333333333',  // 注册后获得电话
+				registerPwd: '111111',  // 注册后获得密码
 			}
 		},
 		methods: {
-			// 点击表单导航
-			clickLoginMode(flag, phone){
+			// 点击表单导航 或 注册成功后触发
+			clickLoginMode(flag, phone, pwd){
 				this.loginMode = flag
 				if (flag===true) {
 					this.model = this.arr[0]
@@ -53,6 +55,7 @@
 					this.model = this.arr[1]
 				}
 				this.registerPhone = phone
+				this.registerPwd = pwd
 			},
 		},
 	}

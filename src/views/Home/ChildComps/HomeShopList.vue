@@ -1,8 +1,8 @@
 <template>
 	<div class="home-shop-list">
 		<div class="shop-list">
-			<div class="shop-list-item" 
-				v-for="shoplist in homeshoplist_data" :key="shoplist._id" 
+			<div class="shop-list-item"
+				v-for="(shoplist, index) in homeshoplist_data" :key="index"
 				@click="goToGoodsDetail(shoplist)" >
 				<!-- 普通方式 -->
 				<!-- <img :src="shoplist.image_url" :alt="shoplist.name"> -->
@@ -66,9 +66,9 @@
 				}
 				
 				// 判断如何进行分发
-				if (this.$route.name == 'goodsDetail') {  // 点击推荐商品
+				if (this.$route.name == 'goodsDetail') {  // 商品详情页中点击推荐商品
 					this.$store.state.recommendInfo = product
-				} else{  // 点击非推荐商品
+				} else{  // 非商品详情页点击非推荐商品
 					this.$router.push({
 						name: 'goodsDetail',
 						// 传递数据组成详情页

@@ -4,11 +4,11 @@
 
 			<!-- 头部 -->
 			<div class="head">
-				<!-- 地理位置，搜索框 -->
-				<nav-bar>
-					<template v-slot:left>地图</template>
-					<template v-slot:center>搜索栏</template>
-					<template v-slot:right>扫一扫</template>
+				<!-- 搜索栏 -->
+				<nav-bar class="navbar">
+					<template v-slot:center>
+						<Search :isSearchMenu='isSearchMenu' />
+					</template>
 				</nav-bar>
 				<!-- 轮播图 -->
 				<home-swiper-container :homeslide_data='homeslide_data' />
@@ -22,6 +22,9 @@
 
 		</better-scroll>
 
+		<!-- 搜索栏蒙版 -->
+		<search-menu v-if="isSearch" :isSearchMenu='isSearchMenu' />
+
 		<!-- 返回顶部 -->
 		<back-top @click.native='backClick' v-show="isBackTop" />
 	</div>
@@ -29,6 +32,8 @@
 
 <script>
 	// 导入组件
+	import Search from '../Classify/ChildComps/Search.vue'
+	import SearchMenu from '../Classify/ChildComps/SearchMenu.vue'
 	import HomeSwiperContainer from './ChildComps/HomeSwiperContainer.vue'
 	import HomeNav from './ChildComps/HomeNav.vue'
 	import HomeShopList from './ChildComps/HomeShopList.vue'
@@ -52,6 +57,8 @@
 	export default {
 		name: 'Home',
 		components: {
+			Search,
+			SearchMenu,
 			NavBar,
 			HomeSwiperContainer,
 			HomeNav,
@@ -62,6 +69,7 @@
 		mixins: [backTopMixin],
 		data() {
 			return {
+				isSearch: false,  // 是否显示搜索蒙版
 				homeslide_data: null, // 轮播图 数据
 				homenav_data: null, // 中间导航 数据
 				homeshoplist_data: null, // 商品列表 数据
@@ -112,7 +120,11 @@
 			// 	} else{
 			// 		this.isBackTop = false
 			// 	}
-			// }
+			// },
+			// 改变搜索蒙版状态
+			isSearchMenu(flag){
+				this.isSearch = flag
+			}
 		}
 	}
 </script>
@@ -125,6 +137,10 @@
 	.head{ // 纵向滚动的内容要有高度
 		width 100%;
 		background-image url(imgs/backImage.png)
+		.navbar{
+			position relative
+			z-index 999
+		}
 	}
 	// .content1
 	// 	// height calc(92%)

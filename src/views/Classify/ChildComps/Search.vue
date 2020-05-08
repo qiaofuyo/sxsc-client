@@ -12,7 +12,7 @@
 		name:'Search',
 		props: {
 			isSearchMenu: Function
-		}
+		},
 	}
 </script>
 
@@ -21,7 +21,7 @@
 		width 100%
 		height 43px
 		// border-bottom .01rem solid #e8e9e8;
-		background-color white
+		// background-color white
 		display flex
 		justify-content center
 		align-items center

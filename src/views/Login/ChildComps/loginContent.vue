@@ -42,7 +42,7 @@
 		data() {
 			return {
 				phone: this.registerPhone,
-				pwd: '',  // 密码
+				pwd: this.registerPwd,  // 密码
 				captcha: '',  // 验证码
 				
 				pwdMode: true,  // 显示密码——密文
@@ -53,6 +53,10 @@
 		},
 		props:{
 			registerPhone:{  //手机号码
+				type: String,
+				default: ''
+			},
+			registerPwd:{  // 密码
 				type: String,
 				default: ''
 			}

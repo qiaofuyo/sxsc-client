@@ -103,7 +103,7 @@
 					return
 				} else{
 					this.$toast.show('注册成功')
-					this.$emit('registerSucceed', true, this.phone)
+					this.$emit('registerSucceed', true, this.phone, this.pwd)
 				}
 			}
 		},

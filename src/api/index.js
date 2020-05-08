@@ -32,6 +32,8 @@ export const getHomeShopList = () => ajax(BASE_URL + '/api/homeshoplist')
 export const getPrimaryClassify = () => ajax(BASE_URL + '/api/primaryclassify')
 // 二级分类		await getSecondaryClassify('a')
 export const getSecondaryClassify  = (param) => ajax(BASE_URL + '/api/secondaryclassify' + param)
+// 搜索商品
+export const searchGoods = (data) => ajax(BASE_URL + '/api/searchGoods', data, 'POST')
 
 
 

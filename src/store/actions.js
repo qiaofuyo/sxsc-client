@@ -8,7 +8,9 @@ import {
 	settlement,
 	emptyCart,
 	
-	confirmReceipt
+	confirmReceipt,
+	
+	searchGoods
 } from '../api/index.js'
 
 import {
@@ -126,6 +128,12 @@ export default {
 			commit(GET_USER_INFO, result.data.message)
 			return result.data
 		}
+		return result.data
+	},
+	
+	// 搜索商品
+	async searchGoods({commit}, data) {
+		const result = await searchGoods(data)
 		return result.data
 	}
 }
