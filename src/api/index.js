@@ -7,11 +7,7 @@ import {PATH} from '../common/OTO.js'
 // 1. 基础路径
 const BASE_URL = PATH  // 向主机请求
 // const BASE_URL = '/api'  // 采用服务器欺骗时的基路径
-// 本地测试nginx => 映射虚拟主机 192.168.1.3 test.com
-// const BASE_URL = 'http://test.com'
 
-// 云端
-// const BASE_URL = 'http://xinggui.top'
 
 // 2. 请求方法——b站,分批请求
 // 2.1 请求首页轮播图
