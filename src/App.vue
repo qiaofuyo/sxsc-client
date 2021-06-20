@@ -20,6 +20,7 @@
 			TabBar
 		},
 		mounted(){
+			console.log(`我是人间四月天，你是东北地三鲜。`);
 			this.$store.dispatch('getUserInfo')  // 自动登陆
 		},
 	}

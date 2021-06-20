@@ -25,7 +25,7 @@ Vue.config.productionTip = false
 new Vue({
 	// components: { App },
 	// template: '<App> <App/>',
-  render: h => h(App),  // <=> shangmian lianghang
+  render: h => h(App),  // <=> 上面两行
 	router,
 	store,
 }).$mount('#app')

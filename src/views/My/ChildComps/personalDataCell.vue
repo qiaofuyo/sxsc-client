@@ -29,7 +29,7 @@
 		},
 		data() {
 			return {
-				leftTitle: ['头像','昵称','手机号','性别','生日'],
+				leftTitle: ['昵称','手机号','性别','生日'],
 				// rightContent: ['', 'xg', '女', '2011-7-23', '19999999999'],
 				// isShowArrows: {type:Boolean, default:true},
 				compile: false  // false不能编辑个人资料
@@ -45,7 +45,7 @@
 					}
 				}
 				let result = {  // 拷贝用户信息
-					user_photo: rinse.user_phtot,
+					// user_photo: rinse.user_photo,
 					user_name: rinse.user_name,
 					user_phone: rinse.user_phone,
 					user_gender: rinse.user_gender,

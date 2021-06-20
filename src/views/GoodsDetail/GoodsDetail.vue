@@ -7,7 +7,8 @@
 		<better-scroll class="detailBody" ref='scroll' @scroll='contentScroll'>
 			<!-- 商品展示图 -->
 			<div class="image_url" ref='image_url' >
-				<img v-lazy=goodsInfo.goods_image_url alt="">
+				<img v-lazy=goodsInfo.goods_image_url alt="" v-if="goodsInfo.goods_image_url">
+				<img src="../../assets/img/placeholder.png" v-else />
 			</div>
 			<!-- 商品信息 -->
 			<div class="textInfo">

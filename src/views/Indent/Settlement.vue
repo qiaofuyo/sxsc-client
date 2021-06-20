@@ -229,8 +229,9 @@
 
 			display flex;
 
-			img {
+			.item-img {
 				width 20%;
+				height 20%;
 			}
 
 			.item-info {

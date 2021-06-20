@@ -40,13 +40,14 @@
 							>
 							<div class="list">
 								<div class="listImg">
-									<img v-lazy=shopItem.image_url alt="">
+									<img v-lazy=shopItem.image_url alt="" v-if="shopItem.image_url">
+									<img src="../../../assets/img/placeholder.png" v-else />
 								</div>
 								<div class="listText">
 									<p class="name">{{shopItem.name}}</p>
 									<p class="describe">{{shopItem.describe}}</p>
 									<p class="price">￥{{shopItem.price}}</p>
-									<p class="origin_price">￥{{shopItem.origin_price}}</p>
+									<p class="origin_price" v-if="shopItem.origin_price">￥{{shopItem.origin_price}}</p>
 								</div>							
 								<div class="listBuy" @click.stop="addToCart(shopItem)">
 									<img src="../imgs/cart.svg" alt="">

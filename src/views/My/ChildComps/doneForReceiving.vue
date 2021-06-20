@@ -7,7 +7,7 @@
 					<img src="../imgs/fanhui.svg" alt="">
 				</div>
 			</template>
-			<template v-slot:center>待收货</template>
+			<template v-slot:center>已收货</template>
 		</nav-bar>
 		
 		<!-- 主体 -->
@@ -111,8 +111,9 @@
 			
 				display flex;
 				
-				img {
+				.item-img {
 					width 20%;
+					height 20%;
 				}
 			
 				.item-info {

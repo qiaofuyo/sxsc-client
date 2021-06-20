@@ -43,11 +43,11 @@
 				isShowCalendar: false  ,// 修改生日弹出层
 			}
 		},
-		props:{  // 每行的左标题、右内容、显示箭头、点击事件函数
+		props:{
 			title: Array,  // 左侧标题集合
-			leftTitle: {type:String, default:'--'},
-			rightContent: {type:String, default:'未填写'},
-			// isShowArrows: {type:Boolean, default:true},
+			leftTitle: {type:String, default:'--'},  // 每行的左标题
+			rightContent: {type:String, default:'未填写'},  // 右内容
+			// isShowArrows: {type:Boolean, default:true},  // 显示箭头
 			
 			nameTitle: String,  // 要编辑行的左标题，跟store中键对应
 			isCompile: Boolean  // 能否编辑
@@ -57,7 +57,7 @@
 			isShowArrows(){
 				if(!this.isCompile) return false
 				// (this.leftTitle===this.title[1] || this.leftTitle===this.title[3] || this.leftTitle===this.title[4]) ? true : false  // 不知道为什么用三目会报错，说是返回的值有问题 ？
-				if (this.leftTitle===this.title[1] || this.leftTitle===this.title[3] || this.leftTitle===this.title[4]) return true
+				if (this.leftTitle===this.title[0] || this.leftTitle===this.title[2] || this.leftTitle===this.title[3]) return true
 				return false
 			}
 		},
@@ -66,15 +66,15 @@
 			clickItem(){
 				if(!this.isCompile) return this.$toast.show('处于只读状态', 800)
 				switch (this.leftTitle){
-					case this.title[1]:
+					case this.title[0]:
 						this.name = this.nameTitle
 						this.isShowField = true
 						break;
-					case this.title[3]:
+					case this.title[2]:
 						this.name = this.nameTitle
 						this.isShowActionSheet = true
 						break;
-					case this.title[4]:
+					case this.title[3]:
 						this.name = this.nameTitle
 						this.isShowCalendar = true
 						break;

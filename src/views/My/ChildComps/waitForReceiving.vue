@@ -49,7 +49,7 @@
 	import NavBar from 'components/NavBar/NavBar.vue'
 	import BetterScroll from 'components/BetterScroll/BetterScroll.vue'
 	
-	import { mapGetters, mapActions } from 'vuex'
+	import { mapGetters, mapActions, mapState } from 'vuex'
 	
 	export default {
 		name: 'waitForReceiving',
@@ -58,6 +58,7 @@
 			BetterScroll
 		},
 		computed: {
+			...mapState(['userInfo']),
 			...mapGetters(['receivingList'])
 		},
 		methods: {
@@ -72,7 +73,7 @@
 			},
 			// 点击确认收货
 			statusClick(id){
-				this.confirmReceipt({id: id}).then(res=>{
+				this.confirmReceipt({order_id: id, user_id: this.userInfo._id}).then(res=>{
 					if(res.status_code !== 200) return this.$toast.show('确认收货失败', 700)
 					this.$toast.show('确认收货成功', 800)
 				})
@@ -141,8 +142,9 @@
 			
 				display flex;
 				
-				img {
+				.item-img {
 					width 20%;
+					height 20%;
 				}
 			
 				.item-info {
